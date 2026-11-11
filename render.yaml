@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: malfoy-bot
+    runtime: docker
+    plan: starter          # a disk needs a paid plan; free works but loses the login on every restart
+    healthCheckPath: /health
+    autoDeployTrigger: commit
+    disk:
+      name: malfoy-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: DATA_DIR
+        value: /var/data
+      - key: PREFIX
+        value: "."
+      - key: GROQ_API_KEY
+        sync: false
+      - key: PAIRING_NUMBER
+        sync: false
+      - key: QR_KEY
+        sync: false
