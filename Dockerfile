@@ -18,4 +18,4 @@ COPY . .
 ENV PORT=10000
 EXPOSE 10000
 
-CMD ["node", "malfoy.js"]
+CMD ["node", "index.js"]
